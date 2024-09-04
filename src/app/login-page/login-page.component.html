@@ -1,0 +1,81 @@
+<div class="bg-blue-400 h-screen pt-10">
+  <form
+    class="mx-auto container flex justify-center rounded-lg bg-white w-[500px] py-12 px-20 flex-col gap-5"
+    [formGroup]="loginForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <p class="text-2xl text-center">Login form</p>
+    <div class="flex flex-col gap-1">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        placeholder="example@email.com"
+        class="py-1 rounded-md px-2 border border-gray-500"
+        formControlName="email"
+      />
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="password">Password</label>
+      <input
+        type="text"
+        placeholder="12345678"
+        class="py-1 rounded-md px-2 border border-gray-500"
+        formControlName="password"
+      />
+      <div class="flex justify-between">
+        <div class="flex gap-2 group">
+          <input type="checkbox" formControlName="remember" />
+          <p class="text-sm cursor-pointer">Remember</p>
+        </div>
+        <p class="text-blue-600 text-sm cursor-pointer">Forget password?</p>
+      </div>
+    </div>
+    <div class="flex flex-col gap-1">
+      @if(admin == false){
+      <button
+        type="submit"
+        class="rounded-md w-full text-center bg-blue-500 text-white py-1 text-lg mt-8 disabled:bg-gray-400"
+        [disabled]="!loginForm.valid"
+        routerLink="/"
+      >
+        Login
+      </button>
+      <p class="text-center">Or</p>
+      <p class="text-center">
+        Login as
+        <span
+          class="text-blue-600 font-medium cursor-pointer"
+          (click)="changeAdminStatus()"
+          >Admin</span
+        >
+      </p>
+      }@else if(admin == true) {
+      <button
+        type="submit"
+        class="rounded-md w-full text-center bg-blue-500 text-white py-1 text-lg mt-8 disabled:bg-gray-400"
+        [disabled]="!loginForm.valid"
+        routerLink="/product-listing"
+      >
+        Login as Admin
+      </button>
+      <p class="text-center">Or</p>
+      <p class="text-center">
+        Login as
+        <span
+          class="text-blue-600 font-medium cursor-pointer"
+          (click)="changeAdminStatus()"
+          >Customer</span
+        >
+      </p>
+      }
+
+      <p class="text-center mt-5">
+        Don't have an account?<span
+          class="text-blue-500 font-medium ml-3 cursor-pointer"
+          routerLink="/signup-page"
+          >Sign up</span
+        >
+      </p>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,59 @@
+
+<div class="bg-blue-400 h-screen pt-10">
+  <form
+    class="mx-auto container flex justify-center rounded-lg bg-white w-[500px] py-8 px-20 flex-col gap-3"
+    [formGroup]="signUpForm"
+    (ngSubmit)="onSubmit()"
+  >
+    <p class="text-2xl text-center">Signup form</p>
+    <div class="flex flex-col gap-1">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        placeholder="John Doe"
+        class="py-1 rounded-md px-2 border border-gray-500"
+        formControlName="name"
+      />
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        placeholder="example@email.com"
+        class="py-1 rounded-md px-2 border border-gray-500"
+        formControlName="email"
+      />
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="password">Password</label>
+      <input
+        type="text"
+        placeholder="1234"
+        class="py-1 rounded-md px-2 border border-gray-500"
+        formControlName="password"
+      />
+    </div>
+    <div class="flex flex-col gap-1">
+      <button
+        type="submit"
+        class="rounded-md w-full text-center bg-blue-500 text-white py-1 text-lg mt-8 disabled:bg-gray-400"
+        [disabled]="!signUpForm.valid"
+      >
+        Signup
+      </button>
+      <p class="text-center">
+        Already have an account?
+        <span
+          class="text-blue-500 font-medium cursor-pointer"
+          routerLink="/login-page"
+          >Log In</span
+        >
+      </p>
+    </div>
+
+    <p class="pt-5 text-sm text-balance">
+      By signing up to create an account I accept's Company's
+      <span class="text-blue-500">terms of condition and privacy policy</span>
+    </p>
+  </form>
+</div>

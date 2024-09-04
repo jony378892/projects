@@ -1,0 +1,92 @@
+
+<form
+  class="flex flex-col gap-3 p-5"
+  [formGroup]="productDetails"
+  (ngSubmit)="onSubmit()"
+>
+  <div class="flex gap-2">
+    <div class="flex flex-col gap-1 w-1/2">
+      <label>Product title</label>
+      <input
+        type="text"
+        class="py-1 px-2 rounded-md border border-gray-400"
+        formControlName="title"
+      />
+    </div>
+    <div class="flex flex-col gap-1 w-1/4">
+      <label>Product category</label>
+      <input
+        type="text"
+        class="py-1 px-2 rounded-md border border-gray-400"
+        formControlName="category"
+      />
+    </div>
+    <div class="flex flex-col gap-1 w-1/4">
+      <label>Stock</label>
+      <input
+        type="number"
+        class="py-1 px-2 rounded-md border border-gray-400"
+        formControlName="stock"
+      />
+    </div>
+  </div>
+  <div class="flex gap-2">
+    <div class="flex flex-col gap-1 w-1/2">
+      <label>Product description</label>
+      <textarea
+        type="text"
+        class="rounded-md border border-gray-400 p-2 h-20"
+        formControlName="description"
+      ></textarea>
+    </div>
+    <div class="flex gap-2 w-1/2">
+      <div class="flex flex-col gap-1 w-1/2">
+        <label>Product Color</label>
+        <input
+          type="text"
+          class="py-1 px-2 rounded-md border border-gray-400"
+          formControlName="color"
+        />
+      </div>
+      <div class="flex flex-col gap-1 w-1/2">
+        <label>Product Price</label>
+        <input
+          type="number"
+          class="py-1 px-2 rounded-md border border-gray-400"
+          formControlName="price"
+        />
+      </div>
+    </div>
+  </div>
+
+  <button
+    type="submit"
+    class="self-start bg-blue-500 text-white px-5 py-1 rounded-md disabled:bg-gray-400"
+    [disabled]="!productDetails.valid"
+  >
+    Submit
+  </button>
+</form>
+<hr />
+
+@if (productService.productList.length !== 0){
+<div class="flex flex-col gap-3 p-5">
+  <div class="grid grid-cols-6 bg-gray-100 py-2 px-2">
+    <div class="col-span-2">Name</div>
+    <div class="">Category</div>
+    <div class="">Price</div>
+    <div class="">Color</div>
+    <div class="">Stock</div>
+  </div>
+  @for(product of productService.productList; track product.name){
+  <div class="grid grid-cols-6 px-2">
+    <div class="col-span-2">{{ product.title }}</div>
+    <div class="">{{ product.category }}</div>
+    <div class="">{{ product.price }}</div>
+    <div class="">{{ product.color }}</div>
+    <div class="">{{ product.stock }}</div>
+  </div>
+  <hr />
+  }
+</div>
+}
