@@ -4,6 +4,7 @@ import { SignupPageComponent } from './signup-page/signup-page.component';
 import { ProductListingComponent } from './admin/product-listing/product-listing.component';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { AdminLoginComponent } from './admin-login/admin-login.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -11,4 +12,5 @@ export const routes: Routes = [
   { path: 'login-page', component: LoginPageComponent },
   { path: 'signup-page', component: SignupPageComponent },
   { path: 'product-listing', component: ProductListingComponent },
+  { path: 'admin-login', component: AdminLoginComponent },
 ];

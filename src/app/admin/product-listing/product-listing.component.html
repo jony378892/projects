@@ -1,4 +1,4 @@
-
+@if(auth.loggedInAdmin == true){
 <form
   class="flex flex-col gap-3 p-5"
   [formGroup]="productDetails"
@@ -69,7 +69,7 @@
 </form>
 <hr />
 
-@if (productService.productList.length !== 0){
+@if (productService.dataArray.length !== 0){
 <div class="flex flex-col gap-3 p-5">
   <div class="grid grid-cols-6 bg-gray-100 py-2 px-2">
     <div class="col-span-2">Name</div>
@@ -78,7 +78,7 @@
     <div class="">Color</div>
     <div class="">Stock</div>
   </div>
-  @for(product of productService.productList; track product.name){
+  @for(product of productService.dataArray; track $index){
   <div class="grid grid-cols-6 px-2">
     <div class="col-span-2">{{ product.title }}</div>
     <div class="">{{ product.category }}</div>
@@ -89,4 +89,8 @@
   <hr />
   }
 </div>
+} }@else {
+<p class="text-center mt-20 text-black">
+  You are not allowed to access this page
+</p>
 }

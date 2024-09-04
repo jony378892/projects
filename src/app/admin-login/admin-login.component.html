@@ -1,4 +1,4 @@
-@if(auth.loggedIn == false){
+@if(auth.loggedInAdmin == false){
 <div class="bg-blue-400 h-screen pt-10">
   <form
     class="mx-auto container flex justify-center rounded-lg bg-white w-[500px] py-12 px-20 flex-col gap-5"
@@ -37,7 +37,7 @@
         class="rounded-md w-full text-center bg-blue-500 text-white py-1 text-lg mt-8 disabled:bg-gray-400"
         [disabled]="!loginForm.valid"
       >
-        Login
+        Login as admin
       </button>
       <p class="text-center">Or</p>
       <p class="text-center">
@@ -45,7 +45,7 @@
         <span
           class="text-blue-600 font-medium cursor-pointer"
           routerLink="/admin-login"
-          >Admin</span
+          >Customer</span
         >
       </p>
 
@@ -65,9 +65,9 @@
     you are Logged in. Go to
     <button
       class="text-blue-600 bg-white rounded-md px-3 py-1 ml-5"
-      routerLink="/home"
+      routerLink="/product-listing"
     >
-      HomePage
+      Product Listing
     </button>
   </div>
 </div>

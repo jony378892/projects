@@ -5,21 +5,20 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { RouterLink } from '@angular/router';
-import { NavbarComponent } from '../navbar/navbar.component';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-login-page',
+  selector: 'app-admin-login',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink, NavbarComponent],
-  templateUrl: './login-page.component.html',
-  styleUrl: './login-page.component.scss',
+  imports: [ReactiveFormsModule, RouterLink, RouterLinkActive],
+  templateUrl: './admin-login.component.html',
+  styleUrl: './admin-login.component.scss',
 })
-export class LoginPageComponent {
+export class AdminLoginComponent {
   constructor(public auth: AuthService) {}
 
-  loggedIn: boolean = false;
+  loggedInAdmin: boolean = false;
 
   loginForm: any = new FormGroup({
     email: new FormControl('jony@gmail.com', [Validators.required]),
@@ -34,7 +33,7 @@ export class LoginPageComponent {
         userData.email == this.loginForm.get('email').value &&
         userData.password == this.loginForm.get('password').value
       ) {
-        this.auth.loggedIn = true;
+        this.auth.loggedInAdmin = true;
       } else {
         alert("Your email and password aren't matching");
       }

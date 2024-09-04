@@ -15,32 +15,15 @@ import { NavbarComponent } from '../navbar/navbar.component';
   templateUrl: './signup-page.component.html',
   styleUrls: ['./signup-page.component.scss'],
 })
-export class SignupPageComponent implements OnInit {
-  userData: any[] = [];
-
-  signUpForm = new FormGroup({
+export class SignupPageComponent {
+  signUpForm: any = new FormGroup({
     name: new FormControl('', Validators.required),
     email: new FormControl('', Validators.required),
-    password: new FormControl('', [
-      Validators.required,
-      Validators.minLength(4),
-    ]),
+    password: new FormControl('', Validators.required),
   });
 
-  ngOnInit(): void {
-    const savedData = localStorage.getItem('userData');
-    if (savedData) {
-      this.userData = JSON.parse(savedData);
-    }
-  }
-
   onSubmit(): void {
-    if (this.signUpForm.valid) {
-      this.userData.push(this.signUpForm.value);
-
-      localStorage.setItem('signupData', JSON.stringify(this.userData));
-
-      this.signUpForm.reset();
-    }
+    localStorage.setItem('signupData', JSON.stringify(this.signUpForm.value));
+    this.signUpForm.reset();
   }
 }

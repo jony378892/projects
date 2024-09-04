@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ProductService } from '../product.service';
-import { NavbarComponent } from '../navbar/navbar.component';
 
 @Component({
   selector: 'app-home',
@@ -9,8 +8,17 @@ import { NavbarComponent } from '../navbar/navbar.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
-export class HomeComponent {
-  constructor(public productService: ProductService) {
-    console.log(this.productService.productList);
+export class HomeComponent implements OnInit {
+  constructor(public productService: ProductService) {}
+
+  ngOnInit(): void {
+    this.loadData();
+  }
+
+  loadData() {
+    const storedData = localStorage.getItem('dataArray');
+    if (storedData) {
+      this.productService.dataArray = JSON.parse(storedData);
+    }
   }
 }

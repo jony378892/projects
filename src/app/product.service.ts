@@ -6,9 +6,5 @@ import { Injectable } from '@angular/core';
 export class ProductService {
   constructor() {}
 
-  productList: any[] = [];
-
-  addProduct(product: any) {
-    this.productList.push(product);
-  }
+  dataArray: any[] = [];
 }
