@@ -25,5 +25,6 @@ export class SignupPageComponent {
   onSubmit(): void {
     localStorage.setItem('signupData', JSON.stringify(this.signUpForm.value));
     this.signUpForm.reset();
+    alert('Sign up successful, Go back to login page');
   }
 }

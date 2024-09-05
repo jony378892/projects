@@ -7,4 +7,5 @@ export class ProductService {
   constructor() {}
 
   dataArray: any[] = [];
+  orderArray: any[] = [];
 }

@@ -1,24 +1,25 @@
 <div
   class="flex justify-between bg-blue-400 text-white font-medium items-center px-5 py-2 border-b shadow-lg"
 >
-  <p
+  <a
     class="text-2xl text-white border border-gray-200 px-5 py-1 shadow-lg rounded-md"
+    routerLink="/"
   >
     LOGO
-  </p>
+  </a>
   <div class="flex gap-8 text-lg">
     <a href="#">Home</a>
     <a>Shop</a>
     <a>Contact</a>
   </div>
-  @if(auth.loggedIn == false){
+  @if(auth.loggedIn == false && auth.loggedInAdmin == false){
   <div class="flex gap-3 text-lg">
     <a routerLink="/signup-page" routerLinkActive="active">Sign Up</a>
     <a routerLink="/login-page" routerLinkActive="active">Login</a>
   </div>
-  }@else{
+  }@else if(auth.loggedIn == true){
   <div class="flex gap-1 items-center">
-    <p>Logged in as <span>User</span></p>
+    <p>Logged in as <span>customer</span></p>
     <button
       class="border border-gray-300 shadow-lg text-center rounded-md px-2 py-1"
       (click)="logout()"
@@ -26,6 +27,15 @@
       Logout
     </button>
   </div>
-
+  } @else if(auth.loggedInAdmin == true && auth.loggedIn == false){
+  <div class="flex gap-1 items-center">
+    <p>Logged in as <span>admin</span></p>
+    <button
+      class="border border-gray-300 shadow-lg text-center rounded-md px-2 py-1"
+      (click)="logout()"
+    >
+      Logout
+    </button>
+  </div>
   }
 </div>

@@ -1,1 +1,33 @@
-
+@if(auth.loggedInAdmin == true){ @if (productService.orderArray.length !== 0){
+<div class="flex flex-col gap-3 p-5">
+  <div class="grid grid-cols-7 bg-gray-100 py-2 px-2">
+    <div class="col-span-2">Name</div>
+    <div class="">Category</div>
+    <div class="">Price</div>
+    <div class="">Color</div>
+    <div class="">Stock</div>
+    <div class="">Action</div>
+  </div>
+  @for(product of productService.orderArray; track $index){
+  <div class="grid grid-cols-7 px-2">
+    <div class="col-span-2">{{ product.title }}</div>
+    <div class="">{{ product.category }}</div>
+    <div class="">{{ product.price }}</div>
+    <div class="">{{ product.color }}</div>
+    <div class="">{{ product.stock }}</div>
+    <button
+      type="button"
+      class="bg-blue-500 px-3 py-0.5 rounded text-white"
+      (click)="deleteProduct($index)"
+    >
+      Delete
+    </button>
+  </div>
+  <hr />
+  }
+</div>
+} }@else {
+<p class="text-center mt-20 text-black">
+  You are not allowed to access this page
+</p>
+}

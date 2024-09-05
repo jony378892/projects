@@ -18,8 +18,6 @@ import { AuthService } from '../auth.service';
 export class AdminLoginComponent {
   constructor(public auth: AuthService) {}
 
-  loggedInAdmin: boolean = false;
-
   loginForm: any = new FormGroup({
     email: new FormControl('jony@gmail.com', [Validators.required]),
     password: new FormControl('1234', Validators.required),
@@ -37,6 +35,8 @@ export class AdminLoginComponent {
       } else {
         alert("Your email and password aren't matching");
       }
+    } else {
+      alert('You have to sign up first');
     }
   }
 }

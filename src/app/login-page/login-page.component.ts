@@ -19,10 +19,8 @@ import { AuthService } from '../auth.service';
 export class LoginPageComponent {
   constructor(public auth: AuthService) {}
 
-  loggedIn: boolean = false;
-
   loginForm: any = new FormGroup({
-    email: new FormControl('jony@gmail.com', [Validators.required]),
+    email: new FormControl('jony@gmail.com', Validators.required),
     password: new FormControl('1234', Validators.required),
   });
 
@@ -38,6 +36,8 @@ export class LoginPageComponent {
       } else {
         alert("Your email and password aren't matching");
       }
+    } else {
+      alert('You have to sign up first');
     }
   }
 }

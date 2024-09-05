@@ -29,7 +29,6 @@ export class ProductListingComponent implements OnInit {
     color: new FormControl('', Validators.required),
     price: new FormControl('', Validators.required),
   });
-  
 
   ngOnInit(): void {
     this.loadData();
@@ -43,7 +42,10 @@ export class ProductListingComponent implements OnInit {
   }
 
   saveData() {
-    localStorage.setItem('dataArray', JSON.stringify(this.productService.dataArray));
+    localStorage.setItem(
+      'dataArray',
+      JSON.stringify(this.productService.dataArray)
+    );
   }
 
   onSubmit() {
@@ -52,5 +54,10 @@ export class ProductListingComponent implements OnInit {
       this.saveData();
       this.productDetails.reset();
     }
+  }
+
+  deleteProduct(index: number) {
+    this.productService.dataArray.splice(index, 1);
+    this.saveData();
   }
 }

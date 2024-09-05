@@ -2,9 +2,9 @@ import { Routes } from '@angular/router';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { ProductListingComponent } from './admin/product-listing/product-listing.component';
-import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { OrderListComponent } from './admin/order-list/order-list.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -13,4 +13,5 @@ export const routes: Routes = [
   { path: 'signup-page', component: SignupPageComponent },
   { path: 'product-listing', component: ProductListingComponent },
   { path: 'admin-login', component: AdminLoginComponent },
+  { path: 'order-list', component: OrderListComponent },
 ];
