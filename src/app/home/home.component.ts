@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
   cart(index: number) {
     if (this.auth.loggedIn == true) {
       this.productService.orderArray.push(this.productService.dataArray[index]);
+      alert('The product added to your cart');
     } else {
       alert('You need to login first');
     }

@@ -3,7 +3,7 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { SignupPageComponent } from './signup-page/signup-page.component';
 import { ProductListingComponent } from './admin/product-listing/product-listing.component';
 import { HomeComponent } from './home/home.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { OrderListComponent } from './admin/order-list/order-list.component';
 
 export const routes: Routes = [
