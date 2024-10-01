@@ -5,6 +5,8 @@ import { ProductListingComponent } from './admin/product-listing/product-listing
 import { HomeComponent } from './home/home.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { OrderListComponent } from './admin/order-list/order-list.component';
+import { ProductPageComponent } from './product-page/product-page.component';
+import { ReviewPageComponent } from './review-page/review-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -14,4 +16,6 @@ export const routes: Routes = [
   { path: 'product-listing', component: ProductListingComponent },
   { path: 'admin-login', component: AdminLoginComponent },
   { path: 'order-list', component: OrderListComponent },
+  { path: 'product-page', component: ProductPageComponent },
+  { path: 'review-page', component: ReviewPageComponent },
 ];

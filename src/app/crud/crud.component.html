@@ -1,0 +1,49 @@
+<p class="text-2xl font-semibold text-center py-5">Simple Form</p>
+<form [formGroup]="simpleForm" class="flex flex-col gap-2 w-1/2 conatiner mx-auto">
+    <div class="grid grid-cols-4 gap-3">
+        <label for="name" class="col-span-1">Name:</label>
+        <input type="text" class="col-span-3 border border-gray-400 rounded-md px-2" formControlName="name">
+    </div>
+    <div class="grid grid-cols-4 gap-3">
+        <label for="name" class="col-span-1">Profession:</label>
+        <input type="text" class="col-span-3 border border-gray-400 rounded-md px-2" formControlName="profession">
+    </div>
+    <div class="grid grid-cols-4 gap-3">
+        <label for="name" class="col-span-1">Age:</label>
+        <input type="text" class="col-span-3 border border-gray-400 rounded-md px-2" formControlName="age">
+    </div>
+    <div class="grid grid-cols-4 gap-3">
+        <label for="name" class="col-span-1">Hobby:</label>
+        <input type="text" class="col-span-3 border border-gray-400 rounded-md px-2" formControlName="hobby">
+    </div>
+    @if(formMode == 'submit'){
+    <button type="submit" class="bg-blue-500 text-white px-10 w-fit rounded-md mt-5 disabled:bg-gray-400"
+        [disabled]="!simpleForm.valid" (click)="onSubmit()">Submit</button>
+    }@if(formMode == 'update'){
+    <button type="submit" class="bg-blue-500 text-white px-10 w-fit rounded-md mt-5"
+        (click)="onUpdateAfterEdit()">Update</button>
+    }
+
+
+</form>
+
+
+<div class="flex flex-col gap-2 mt-10">
+    <div class="grid grid-cols-6 gap-2 text-semibold border divide-x-2 text-center">
+        <p>Name</p>
+        <p>Profession</p>
+        <p>Age</p>
+        <p>Hobby</p>
+        <div class="col-span-2">Action</div>
+    </div>
+    @for(data of formData; track $index){
+    <div class="grid grid-cols-6 gap-2 text-semibold border divide-x-2 text-center items-center gap-y-4">
+        <p>{{data.name}}</p>
+        <p>{{data.profession}}</p>
+        <p>{{data.age}}</p>
+        <p>{{data.hobby}}</p>
+        <button type="submit" class="bg-blue-500 text-white px-5 w-fit rounded-md" (click)="onEdit($index)">Edit</button>
+        <button type="submit" class="bg-blue-500 text-white px-5 w-fit rounded-md" (click)="onDelete(data)">Delete</button>
+    </div>
+    }
+</div>

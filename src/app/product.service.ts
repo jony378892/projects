@@ -9,3 +9,4 @@ export class ProductService {
   dataArray: any[] = [];
   orderArray: any[] = [];
 }
+ 

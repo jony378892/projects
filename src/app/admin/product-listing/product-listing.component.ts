@@ -40,7 +40,7 @@ export class ProductListingComponent implements OnInit {
       this.productService.dataArray = JSON.parse(storedData);
     }
   }
-
+                 
   saveData() {
     localStorage.setItem(
       'dataArray',
