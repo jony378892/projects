@@ -1,0 +1,23 @@
+<div class="flex flex-col mx-auto w-1/2">
+    <p class="text-center text-2xl font-semibold my-10"> Special Task </p>
+    <div class="grid grid-cols-2 items-stretch border border-gray-400 rounded-lg p-5 divide-x-2">
+
+        <div class="flex flex-col gap-3 mx-auto">
+            @for(item of arr; track $index){
+            <button class="bg-blue-400 text-white font-semibold rounded-md px-4 py-1 w-fit" (click)="select($index)"> {{item}}
+            </button>
+            }
+        </div>
+        <div class="flex justify-between top-1/2 pt-24 pl-5">
+            <i class="fa-solid fa-square-caret-left text-2xl" (click)="previous()"></i>
+            @if(touch == false){
+            <p class=" text-center  text-red-500 font-semibold text-2xl">{{arr[currentIndex] | uppercase}} </p>
+            }@else {
+            <p class=" text-center  text-red-500 font-semibold text-2xl">{{arr[currentIndex] | uppercase}}</p>
+            }
+            <i class="fa-solid fa-square-caret-right text-2xl" (click)="next()"></i>
+        </div>
+
+
+    </div>
+</div>
