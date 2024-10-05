@@ -1,6 +1,4 @@
-<div
-  class="flex flex-col px-3 relative gap-4 mt-5 lg:mx-auto lg:container lg:gap-8"
->
+<div class="flex flex-col px-3 relative gap-4 mt-5 lg:mx-auto lg:container lg:gap-8">
   <!-- ? Part 1 -->
 
   <div class="flex flex-col gap-4 md:flex-row">
@@ -8,13 +6,16 @@
 
     <div class="flex flex-col gap-2 w-full md:w-1/2">
       <div class="flex flex-col lg:flex-row-reverse gap-2">
-        <img src="/img_02.jpeg" alt="Smart watch" class="lg:w-5/6" />
+        <div class="lg:w-5/6 relative">
+          <i class="fa-solid fa-square-caret-left text-4xl absolute top-1/2 left-0 h-10 text-white" (click)="previous()"></i>
+          <img [src]="productList[selectedImage]" alt="Smart watch" class="w-full h-auto" />
+          <i class="fa-solid fa-square-caret-right text-4xl absolute top-1/2 right-0 text-white" (click)="next()"></i>
+        </div>
         <div class="grid gap-1 w-full lg:w-1/6">
-          <img src="/img_02.jpeg" alt="Smart watch" />
-          <img src="/img_02.jpeg" alt="Smart watch" />
-          <img src="/img_02.jpeg" alt="Smart watch" />
-          <img src="/img_02.jpeg" alt="Smart watch" />
-          <img src="/img_02.jpeg" alt="Smart watch" />
+          @for(product of productList; track $index){
+          <img [src]="product" alt="Smart watch" (click)="selectImage($index)" />
+          }
+
         </div>
       </div>
 
@@ -26,9 +27,7 @@
               Shipper commitment
               <span><i class="fa-solid fa-chevron-right"></i></span>
             </p>
-            <div
-              class="flex flex-col gap-1 bg-gray-200/70 p-2 rounded-md leading-tight text-xs"
-            >
+            <div class="flex flex-col gap-1 bg-gray-200/70 p-2 rounded-md leading-tight text-xs">
               <div class="flex gap-2 items-center text-sm">
                 <i class="fa-solid fa-stop text-gray-400"></i>
                 <p class="text-green-500 font-medium">Quality Guarantee</p>
@@ -44,9 +43,7 @@
                 </p>
               </div>
             </div>
-            <div
-              class="flex flex-col gap-1 bg-gray-200/70 p-2 text-xs rounded-md leading-tight"
-            >
+            <div class="flex flex-col gap-1 bg-gray-200/70 p-2 text-xs rounded-md leading-tight">
               <div class="flex gap-2 items-center text-sm">
                 <i class="fa-solid fa-stop text-gray-400"></i>
                 <p class="text-green-500 font-medium">Delivery Guarantee</p>
@@ -103,69 +100,47 @@
         <div class="bg-white rounded-lg py-1 px-2 flex flex-col gap-2 pb-4">
           <p class="text-sm font-medium">Color:</p>
           <div class="grid grid-cols-5 gap-2 mb-2">
-            <div
-              class="flex flex-col sgap-1 items-center border border-gray-300 rounded-md"
-            >
-              <img src="/img_02.jpeg" alt="Smart watch" />
+            <div class="flex flex-col sgap-1 items-center border border-gray-300 rounded-md">
+              <img src="/image1.jpeg" alt="Smart watch" />
               <p class="py-1 font-medium text-gray-600">Black</p>
             </div>
-            <div
-              class="flex flex-col sgap-1 items-center border border-gray-300 rounded-md"
-            >
-              <img src="/img_02.jpeg" alt="Smart watch" />
+            <div class="flex flex-col sgap-1 items-center border border-gray-300 rounded-md">
+              <img src="/image1.jpeg" alt="Smart watch" />
               <p class="py-1 font-medium text-gray-600">Green</p>
             </div>
-            <div
-              class="flex flex-col sgap-1 items-center border border-gray-300 rounded-md"
-            >
-              <img src="/img_02.jpeg" alt="Smart watch" />
+            <div class="flex flex-col sgap-1 items-center border border-gray-300 rounded-md">
+              <img src="/image1.jpeg" alt="Smart watch" />
               <p class="py-1 font-medium text-gray-600">Yellow</p>
             </div>
-            <div
-              class="flex flex-col sgap-1 items-center border border-gray-300 rounded-md"
-            >
-              <img src="/img_02.jpeg" alt="Smart watch" />
+            <div class="flex flex-col sgap-1 items-center border border-gray-300 rounded-md">
+              <img src="/image1.jpeg" alt="Smart watch" />
               <p class="py-1 font-medium text-gray-600">Orange</p>
             </div>
-            <div
-              class="flex flex-col sgap-1 items-center border border-gray-300 rounded-md"
-            >
-              <img src="/img_02.jpeg" alt="Smart watch" />
+            <div class="flex flex-col sgap-1 items-center border border-gray-300 rounded-md">
+              <img src="/image1.jpeg" alt="Smart watch" />
               <p class="py-1 font-medium text-gray-600">Golden</p>
             </div>
-            <div
-              class="flex flex-col sgap-1 items-center border border-gray-300 rounded-md"
-            >
-              <img src="/img_02.jpeg" alt="Smart watch" />
+            <div class="flex flex-col sgap-1 items-center border border-gray-300 rounded-md">
+              <img src="/image1.jpeg" alt="Smart watch" />
               <p class="py-1 font-medium text-gray-600">White</p>
             </div>
           </div>
           <div class="flex flex-col gap-1">
             <p>Size:</p>
             <div class="grid grid-cols-4 md:grid-cols-6 gap-1">
-              <button
-                class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap"
-              >
+              <button class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap">
                 XL/ 44cm
               </button>
-              <button
-                class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap"
-              >
+              <button class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap">
                 XL/ 44cm
               </button>
-              <button
-                class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap"
-              >
+              <button class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap">
                 XL/ 44cm
               </button>
-              <button
-                class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap"
-              >
+              <button class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap">
                 XL/ 44cm
               </button>
-              <button
-                class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap"
-              >
+              <button class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap">
                 XL/ 44cm
               </button>
             </div>
@@ -173,19 +148,13 @@
           <div class="flex flex-col gap-1">
             <p>Material:</p>
             <div class="grid grid-cols-5 gap-1">
-              <button
-                class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap"
-              >
+              <button class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap">
                 Cotton
               </button>
-              <button
-                class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap"
-              >
+              <button class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap">
                 Lilen
               </button>
-              <button
-                class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap"
-              >
+              <button class="border border-gray-400 px-auto py-1 5 rounded-md shadow-sm text-xs text-nowrap">
                 Metal
               </button>
             </div>
@@ -195,19 +164,13 @@
       <div class="flex gap-3 text-sm pt-3 mb-5">
         <div class="flex gap-3 items-center">
           <p>Quantity:</p>
-          <input
-            type="number"
-            class="border border-gray-400 rounded-md pl-2 w-16 h-7"
-            value="1"
-          />
+          <input type="number" class="border border-gray-400 rounded-md pl-2 w-16 h-7" value="1" />
 
           <p class="text-gray-600 font-medium">(stock available)</p>
         </div>
       </div>
       <div class="w-full bg-white fixed md:relative bottom-0 left-2 p-2 pr-5">
-        <button
-          class="w-full rounded-xl bg-orange-400 text-white font-medium py-1"
-        >
+        <button class="w-full rounded-xl bg-orange-400 text-white font-medium py-1">
           Add to cart
         </button>
       </div>
@@ -236,11 +199,7 @@
       <!-- ? Customer review -->
       <div class="flex flex-col gap-2 pb-3">
         <div class="flex gap-3 items-center">
-          <img
-            src="/profile.jpg"
-            alt="profile-photo"
-            class="w-10 h-10 rounded-full"
-          />
+          <img src="/profile.jpg" alt="profile-photo" class="w-10 h-10 rounded-full" />
           <div class="flex flex-col text-xs">
             <p class="font-semibold">Nazir Hossain</p>
             <p class="text-gray-600">on 20 September, 2024</p>
@@ -262,11 +221,7 @@
       </div>
       <div class="flex flex-col gap-2 pb-3">
         <div class="flex gap-3 items-center">
-          <img
-            src="/profile.jpg"
-            alt="profile-photo"
-            class="w-10 h-10 rounded-full"
-          />
+          <img src="/profile.jpg" alt="profile-photo" class="w-10 h-10 rounded-full" />
           <div class="flex flex-col text-xs">
             <p class="font-semibold">Nazir Hossain</p>
             <p class="text-gray-600">on 20 September, 2024</p>
@@ -288,11 +243,7 @@
       </div>
       <div class="flex flex-col gap-2 pb-3">
         <div class="flex gap-3 items-center">
-          <img
-            src="/profile.jpg"
-            alt="profile-photo"
-            class="w-10 h-10 rounded-full"
-          />
+          <img src="/profile.jpg" alt="profile-photo" class="w-10 h-10 rounded-full" />
           <div class="flex flex-col text-xs">
             <p class="font-semibold">Nazir Hossain</p>
             <p class="text-gray-600">on 20 September, 2024</p>
@@ -314,11 +265,7 @@
       </div>
       <div class="flex flex-col gap-2 pb-3">
         <div class="flex gap-3 items-center">
-          <img
-            src="/profile.jpg"
-            alt="profile-photo"
-            class="w-10 h-10 rounded-full"
-          />
+          <img src="/profile.jpg" alt="profile-photo" class="w-10 h-10 rounded-full" />
           <div class="flex flex-col text-xs">
             <p class="font-semibold">Nazir Hossain</p>
             <p class="text-gray-600">on 20 September, 2024</p>
@@ -338,16 +285,14 @@
           recusandae ullam voluptatum et.
         </p>
         <div class="flex gap-1">
-          <img src="/img_02.jpeg" alt="product_image" class="w-8 h-8" />
-          <img src="/img_02.jpeg" alt="product_image" class="w-8 h-8" />
-          <img src="/img_02.jpeg" alt="product_image" class="w-8 h-8" />
-          <img src="/img_02.jpeg" alt="product_image" class="w-8 h-8" />
+          <img src="/image1.jpeg" alt="product_image" class="w-8 h-8" />
+          <img src="/image1.jpeg" alt="product_image" class="w-8 h-8" />
+          <img src="/image1.jpeg" alt="product_image" class="w-8 h-8" />
+          <img src="/image1.jpeg" alt="product_image" class="w-8 h-8" />
         </div>
       </div>
 
-      <button
-        class="self-center border-blue-700 bg-blue-200 w-fit px-5 rounded-full text-gray-700 my-5 md:mt-16 text-sm py-1"
-      >
+      <button class="self-center border-blue-700 bg-blue-200 w-fit px-5 rounded-full text-gray-700 my-5 md:mt-16 text-sm py-1">
         See all reviews
       </button>
     </div>
@@ -363,9 +308,9 @@
         </p>
       </div>
       <div class="space-y-1">
-        <img src="/img_02.jpeg" alt="product" class="w-full h-64 lg:w-3/4" />
-        <img src="/img_02.jpeg" alt="product" class="w-full h-64 lg:w-3/4" />
-        <img src="/img_02.jpeg" alt="product" class="w-full h-64 lg:w-3/4" />
+        <img src="/image1.jpeg" alt="product" class="w-full h-64 lg:w-3/4" />
+        <img src="/image1.jpeg" alt="product" class="w-full h-64 lg:w-3/4" />
+        <img src="/image1.jpeg" alt="product" class="w-full h-64 lg:w-3/4" />
       </div>
     </div>
   </div>
@@ -377,7 +322,7 @@
     <p class="text-base font-semibold text-gray-600">Explore similar ones</p>
     <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-3 lg:gap-4">
       <div class="flex flex-col gap-2">
-        <img src="/img_02.jpeg" alt="image" class="w-auto h-auto" />
+        <img src="/image1.jpeg" alt="image" class="w-auto h-auto" />
         <div class="flex flex-col">
           <p class="text-xs text-gray-700 line-clamp-1">
             quartz smart watch for heavy use in any weather condition, dust
@@ -398,13 +343,11 @@
             <p class="text-xs text-gray-400 line-through">TK 600</p>
           </div>
 
-          <i
-            class="fa-solid fa-shopping-cart text-gray-500 border border-gray-400 rounded-md text-[10px] p-1 mr-3"
-          ></i>
+          <i class="fa-solid fa-shopping-cart text-gray-500 border border-gray-400 rounded-md text-[10px] p-1 mr-3"></i>
         </div>
       </div>
       <div class="flex flex-col gap-2">
-        <img src="/img_02.jpeg" alt="image" class="w-auto h-auto" />
+        <img src="/image1.jpeg" alt="image" class="w-auto h-auto" />
         <div class="flex flex-col">
           <p class="text-xs text-gray-700 line-clamp-1">
             quartz smart watch for heavy use in any weather condition, dust
@@ -425,13 +368,11 @@
             <p class="text-xs text-gray-400 line-through">TK 600</p>
           </div>
 
-          <i
-            class="fa-solid fa-shopping-cart text-gray-500 border border-gray-400 rounded-md text-[10px] p-1 mr-3"
-          ></i>
+          <i class="fa-solid fa-shopping-cart text-gray-500 border border-gray-400 rounded-md text-[10px] p-1 mr-3"></i>
         </div>
       </div>
       <div class="flex flex-col gap-2">
-        <img src="/img_02.jpeg" alt="image" class="w-auto h-auto" />
+        <img src="/image1.jpeg" alt="image" class="w-auto h-auto" />
         <div class="flex flex-col">
           <p class="text-xs text-gray-700 line-clamp-1">
             quartz smart watch for heavy use in any weather condition, dust
@@ -452,13 +393,11 @@
             <p class="text-xs text-gray-400 line-through">TK 600</p>
           </div>
 
-          <i
-            class="fa-solid fa-shopping-cart text-gray-500 border border-gray-400 rounded-md text-[10px] p-1 mr-3"
-          ></i>
+          <i class="fa-solid fa-shopping-cart text-gray-500 border border-gray-400 rounded-md text-[10px] p-1 mr-3"></i>
         </div>
       </div>
       <div class="flex flex-col gap-2">
-        <img src="/img_02.jpeg" alt="image" class="w-auto h-auto" />
+        <img src="/image1.jpeg" alt="image" class="w-auto h-auto" />
         <div class="flex flex-col">
           <p class="text-xs text-gray-700 line-clamp-1">
             quartz smart watch for heavy use in any weather condition, dust
@@ -479,13 +418,11 @@
             <p class="text-xs text-gray-400 line-through">TK 600</p>
           </div>
 
-          <i
-            class="fa-solid fa-shopping-cart text-gray-500 border border-gray-400 rounded-md text-[10px] p-1 mr-3"
-          ></i>
+          <i class="fa-solid fa-shopping-cart text-gray-500 border border-gray-400 rounded-md text-[10px] p-1 mr-3"></i>
         </div>
       </div>
       <div class="flex flex-col gap-2">
-        <img src="/img_02.jpeg" alt="image" class="w-auto h-auto" />
+        <img src="/image1.jpeg" alt="image" class="w-auto h-auto" />
         <div class="flex flex-col">
           <p class="text-xs text-gray-700 line-clamp-1">
             quartz smart watch for heavy use in any weather condition, dust
@@ -506,15 +443,11 @@
             <p class="text-xs text-gray-400 line-through">TK 600</p>
           </div>
 
-          <i
-            class="fa-solid fa-shopping-cart text-gray-500 border border-gray-400 rounded-md text-[10px] p-1 mr-3"
-          ></i>
+          <i class="fa-solid fa-shopping-cart text-gray-500 border border-gray-400 rounded-md text-[10px] p-1 mr-3"></i>
         </div>
       </div>
     </div>
-    <button
-      class="self-center bg-orange-400 text-white w-fit px-5 rounded-full my-5 text-sm py-1"
-    >
+    <button class="self-center bg-orange-400 text-white w-fit px-5 rounded-full my-5 text-sm py-1">
       Find more
     </button>
   </div>

@@ -16,7 +16,6 @@ export class ProductSamplePageComponent {
   select(i: number) {
     this.touch = true;
     this.currentIndex = i
-    return this.arr[i]
   }
 
   next() {

@@ -1,0 +1,8 @@
+<div class="flex gap-5 py-5 justify-center">
+    <input type="number" class="border border-gray-500 px-2" [formControl]="animationCount">
+    <button class="bg-blue-500 text-white px-5 py-1 font-semibold" (click)="onSubmit(animationCount)">Submit</button>
+</div>
+
+<div class="relative flex justify-center  w-[200px] h-[100px] bg-red-500  text-wrap  mx-auto" id="animate">
+    <p class="absolute top-[40px] text-white">Animated Object</p>
+</div>
