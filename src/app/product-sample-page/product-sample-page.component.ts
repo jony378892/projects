@@ -1,10 +1,10 @@
-import { UpperCasePipe } from '@angular/common';
+import { NgClass, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-product-sample-page',
   standalone: true,
-  imports: [UpperCasePipe],
+  imports: [UpperCasePipe, NgClass],
   templateUrl: './product-sample-page.component.html',
   styleUrl: './product-sample-page.component.scss'
 })

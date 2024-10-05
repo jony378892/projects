@@ -13,7 +13,8 @@
         </div>
         <div class="grid gap-1 w-full lg:w-1/6">
           @for(product of productList; track $index){
-          <img [src]="product" alt="Smart watch" (click)="selectImage($index)" />
+          <img [src]="product" alt="Smart watch" (click)="selectImage($index)"
+            [ngClass]="{'border-4 border-orange-500': $index === selectedImage}" />
           }
 
         </div>
