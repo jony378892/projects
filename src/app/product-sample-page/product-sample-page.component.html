@@ -10,11 +10,9 @@
         </div>
         <div class="flex justify-between top-1/2 pt-24 pl-5">
             <i class="fa-solid fa-square-caret-left text-2xl" (click)="previous()"></i>
-            @if(touch == false){
+
             <p class=" text-center  text-red-500 font-semibold text-2xl">{{arr[currentIndex] | uppercase}} </p>
-            }@else {
-            <p class=" text-center  text-red-500 font-semibold text-2xl">{{arr[currentIndex] | uppercase}}</p>
-            }
+
             <i class="fa-solid fa-square-caret-right text-2xl" (click)="next()"></i>
         </div>
 

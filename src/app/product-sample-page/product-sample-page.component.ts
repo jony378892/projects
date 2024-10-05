@@ -10,11 +10,9 @@ import { Component } from '@angular/core';
 })
 export class ProductSamplePageComponent {
   arr = ['first', 'jony', 'rony', 'rabiul', 'fariz']
-  touch: boolean = false;
   currentIndex: number = 0;;
 
   select(i: number) {
-    this.touch = true;
     this.currentIndex = i
   }
 
