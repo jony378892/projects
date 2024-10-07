@@ -9,6 +9,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import { ReviewPageComponent } from './review-page/review-page.component';
 import { ProductSamplePageComponent } from './product-sample-page/product-sample-page.component';
 import { AnimationComponent } from './animation/animation.component';
+import { RatingFormComponent } from './rating-form/rating-form.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -21,5 +22,6 @@ export const routes: Routes = [
   { path: 'product-page', component: ProductPageComponent },
   { path: 'review-page', component: ReviewPageComponent },
   { path: 'product-sample-page', component: ProductSamplePageComponent },
-  { path: 'animation', component: AnimationComponent }
+  { path: 'animation', component: AnimationComponent },
+  { path: 'rating-form', component: RatingFormComponent }
 ];
