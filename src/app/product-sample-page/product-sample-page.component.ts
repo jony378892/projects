@@ -22,8 +22,6 @@ export class ProductSamplePageComponent {
       this.currentIndex = 0
     }
     console.log(this.currentIndex);
-
-
   }
 
   previous() {
